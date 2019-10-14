@@ -1,0 +1,31 @@
+<!-- Bootstrap Modal  -->
+<ng-template #longContent let-modal>
+    <div class="modal-header" style="text-align: center">
+      <h4 class="shadow text1">{{dataModal.selectedBeer.name}}</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+        <img src="{{dataModal.selectedBeer.image_url}}" class="image" name="image"/>
+        <br>
+        <div class="modal-content">
+            <br>
+          <p class="shadow text1" style="font-size: 18pt">{{dataModal.selectedBeer.tagline}}</p><br>
+          <p><u>First brewed on:</u> {{dataModal.selectedBeer.first_brewed}}</p>
+          <p>{{dataModal.selectedBeer.description}}</p>
+          <p><u>Alcohol by volume:</u> {{dataModal.selectedBeer.abv}}%</p>
+          <p><u>Ingredients: </u><br><u>Yeast:</u> {{dataModal.selectedBeer.ingredients.yeast}}</p> <u>Hops: </u>
+          <p *ngFor="let hops of dataModal.selectedBeer.ingredients.hops">"{{hops.name}}" | When to add: {{hops.add}} of process.
+          </p>
+          <p><u>Brewer's tips:</u> {{dataModal.selectedBeer.brewers_tips}}</p>
+        <u>Food pairing: </u>
+          <p *ngFor="let food of dataModal.selectedBeer.food_pairing">{{food}}</p>
+          <p><u>Contributed by:</u> {{dataModal.selectedBeer.contributed_by}}</p>
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-light" (click)="modal.close('Close click')">Close</button>
+    </div>
+  </ng-template>
+  <button class="btn btn-outline-primary mb-2 mr-2" (click)="openScrollableContent(longContent)">More Details</button>

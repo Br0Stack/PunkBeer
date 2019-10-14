@@ -1,0 +1,86 @@
+<div style="text-align: center">
+    <div class="foo">
+            <span class="letter" data-letter="B">B</span>
+            <span class="letter" data-letter="R">R</span>
+            <span class="letter" data-letter="E">E</span>
+            <span class="letter" data-letter="W">W</span>
+            <span class="letter" data-letter="D">D</span>
+            <span class="letter" data-letter="O">O</span>
+            <span class="letter" data-letter="G">G</span>
+            <br>
+            <span><img src="assets/brewdog.jfif" class="logo" name="image"/></span>
+        <!-- <span class="letter" data-letter="A">A</span>
+        <span class="letter" data-letter="B">B</span>
+        <span class="letter" data-letter="C">C</span>
+        <span class="letter" data-letter="D">D</span>
+        <span class="letter" data-letter="E">E</span>
+        <span class="letter" data-letter="F">F</span>
+        <span class="letter" data-letter="G">G</span>
+        <span class="letter" data-letter="H">H</span>
+        <span class="letter" data-letter="I">I</span>
+        <span class="letter" data-letter="L">L</span>
+        <span class="letter" data-letter="M">M</span>
+        <span class="letter" data-letter="N">N</span>
+        <span class="letter" data-letter="O">O</span>
+        <span class="letter" data-letter="P">P</span>
+        <span class="letter" data-letter="Q">Q</span>
+        <span class="letter" data-letter="R">R</span>
+        <span class="letter" data-letter="S">S</span>
+        <span class="letter" data-letter="T">T</span>
+        <span class="letter" data-letter="U">U</span>
+        <span class="letter" data-letter="V">V</span>
+        <span class="letter" data-letter="Z">Z</span> -->
+      </div>
+  <!-- <h1 class="bank-header">
+      {{title}}
+  </h1> -->
+  <!-- <h2 class="giph-header">
+        BrewDog's Beer Catalog
+    </h2> -->
+</div>
+<div class="input-bank">
+        <!-- <input type="text" #searchName class="form-control" placeholder=" Search Users" name="searchName" [(ngModel)]="searchName.name" (ngModelChange)="userSearch($event)"> -->
+        <input type="text" class="form-control" [(ngModel)]="userFilter.name" placeholder="Search Beers">
+        <div id="myBtnContainer" class="myBtnContainer">
+                <button class="btn active" onclick="filterSelection('all')"> Show all</button>
+                <button class="btn" (click)="filterSelection()"> Favorites</button>
+                <!-- <button class="btn" onclick="filterSelection('animals')"> Animals</button>
+                <button class="btn" onclick="filterSelection('fruits')"> Fruits</button>
+                <button class="btn" onclick="filterSelection('colors')"> Colors</button> -->
+              </div>
+  </div>
+  <div class="loadMore"><p class="shadow text1"><span>- Brewdog Beers: -</span></p>
+        <!-- <select class="loadIt" id="loadIt" [(ngModel)]="limitNum">
+                <option selected value="20">20</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+                <option value="500">500</option>
+              </select> -->
+              <!-- <h1> Showing {{limitNum}} Results</h1> -->
+    <!-- <button class="loadIt" (click)=addLimit()>Load More!</button> -->
+</div>
+<br>
+
+<div class="users-container">
+    <div class="card" id="card" *ngFor="let card of cardObjects | filterBy: userFilter">
+            <i class="material-icons" id='starIcon' (click)="starClicked($event)" >star_border</i>
+            <br>
+        <h2 class="script"><u>{{card.name}}</u></h2>
+        <br>
+        <img src="{{card.image_url}}" class="image" name="image"/>
+        <div class="content">
+          <p><u>{{card.tagline}}</u></p>
+          <p> First brewed on: {{card.first_brewed}}</p>
+          <p>{{card.description}}</p>
+          <p>Alcohol by volume: {{card.abv}}%</p>
+          <ngbd-modal-options (click)=getBeerDetails($event)></ngbd-modal-options>
+          <!-- <p>Add to favorites:</p>  -->
+        </div>
+      </div>
+  </div>
+<br>
+<div class='liBox'>
+<br>
+<div class="LI-profile-badge"  data-version="v1" data-size="medium" data-locale="en_US" data-type="vertical" data-theme="light" data-vanity="edwin-spencer-grier"><h4 class='attribution'> Brought to you by:</h4><a class="LI-simple-link" href='https://www.linkedin.com/in/edwin-spencer-grier?trk=profile-badge'>Edwin Spencer Grier</a></div>
+</div>
+<router-outlet></router-outlet>
