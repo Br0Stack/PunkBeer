@@ -28,6 +28,7 @@ ngAfterViewInit(){
     this.getRestItems();
     console.log(this.cardObjects)
 
+//Favorites switch controls
 // Show filtered elements
 function w3AddClass(element, name) {
   var i, arr1, arr2;
@@ -80,7 +81,6 @@ starClicked(element){
     starIcon.style.color = 'goldenrod';
     this.favArray.push(element.path[1]);
     this.toastr.success("BrewDog's " + element.path[1].childNodes[2].innerText + ' added to favorites!');
-    //element.classList.add("newFav");
     } else if (starIcon.innerHTML === 'star') {
         starIcon.innerHTML = 'star_border';
         starIcon.style.color = 'black';
@@ -112,19 +112,5 @@ filterSelection() {
         }
     }); 
     }
-// userSearch(value: any) {
-//     //const newCardObjects = this.cardObjects.filter(a => a.name.toLowerCase().includes(value.toLowerCase()));
-//     const newCardObjects = this.cardObjects
-//     const keyUp = value.toLowerCase();
-//     this.cardObjects.forEach(element => {
-//         const elementName = element.name.toLowerCase()
-//         console.log(elementName.includes(keyUp))
-//         if (elementName.includes(keyUp)) {
-//             this.cardObjects.filter(a => a.name.toLowerCase().includes(value.toLowerCase()));
-//             return this.cardObjects
-//           } else {
-//             return this.cardObjects = newCardObjects;
-//           }
-//     });
-//   }
+
 }

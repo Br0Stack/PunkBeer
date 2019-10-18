@@ -112,19 +112,5 @@ filterSelection() {
         }
     }); 
     }
-// userSearch(value: any) {
-//     //const newCardObjects = this.cardObjects.filter(a => a.name.toLowerCase().includes(value.toLowerCase()));
-//     const newCardObjects = this.cardObjects
-//     const keyUp = value.toLowerCase();
-//     this.cardObjects.forEach(element => {
-//         const elementName = element.name.toLowerCase()
-//         console.log(elementName.includes(keyUp))
-//         if (elementName.includes(keyUp)) {
-//             this.cardObjects.filter(a => a.name.toLowerCase().includes(value.toLowerCase()));
-//             return this.cardObjects
-//           } else {
-//             return this.cardObjects = newCardObjects;
-//           }
-//     });
-//   }
+
 }
